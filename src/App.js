@@ -24,7 +24,7 @@ class App extends Component {
       <div className="App">
         {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
 
-        <Navbar title="Github Finder" icon="fab fa-github"/>
+        <Navbar />
       </div>
     );
   }

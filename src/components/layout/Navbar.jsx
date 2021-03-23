@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 
 export class Navbar extends Component {
+
+  //if we don't want to pass props in App => < Navbar /> we use :
+  static defaultProps = {
+    title: 'Github Finder',
+    icon: 'fab fa-github'
+  }
+  
   render() {
     return (
       <nav className='navbar bg-primary'>
