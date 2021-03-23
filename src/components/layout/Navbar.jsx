@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class Navbar extends Component {
+class Navbar extends Component {
 
   //if we don't want to pass props in App => < Navbar /> we use :
   static defaultProps = {
