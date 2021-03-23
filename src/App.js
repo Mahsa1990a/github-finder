@@ -9,10 +9,13 @@ class App extends Component {
     //to see how does it look like without JSX with using straight javascript:
     //return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Hello From React'));
 
-    const name = 'Mahsa'
+    const name = 'Mahsa';
+
+    const foo = () => 'Bar';
     return (
       <div className="App">
         <h1>Hello {name.toUpperCase()}</h1>
+        <h1>Hello {foo()}</h1>
       </div>
     );
   }
