@@ -5,19 +5,21 @@ import './App.css';
 
 class App extends Component {
 
-  foo = () => 'Bar';
   render() {
 
     //to see how does it look like without JSX with using straight javascript:
     //return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Hello From React'));
 
     const name = 'Mahsa';
+    const loading = false;
 
-    // const foo = () => 'Bar';
+    if(loading) {
+      return <h4>Loading...</h4>
+    }
+
     return (
       <div className="App">
-        <h1>Hello {name.toUpperCase()}</h1>
-        <h1>Hello {this.foo()}</h1>
+        <h1>Hello {name}</h1>
       </div>
     );
   }
