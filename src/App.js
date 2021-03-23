@@ -11,15 +11,15 @@ class App extends Component {
     //return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Hello From React'));
 
     const name = 'Mahsa';
-    const loading = false;
+    const loading = true;
 
-    if(loading) {
-      return <h4>Loading...</h4>
-    }
+    // if(loading) {
+    //   return <h4>Loading...</h4>
+    // }
 
     return (
       <div className="App">
-        <h1>Hello {name}</h1>
+        { loading ? <h4>Loading ...</h4> : <h1>Hello {name}</h1>}  
       </div>
     );
   }
