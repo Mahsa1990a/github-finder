@@ -5,11 +5,14 @@ import './App.css';
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <h1>Hello From React</h1>
-      </div>
-    );
+
+    //to see how does it look like without JSX with using straight javascript:
+    return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Hello From React'));
+    // (
+    //   <div className="App">
+    //     <h1>Hello From React</h1>
+    //   </div>
+    // );
   }
 }
 
