@@ -8,10 +8,11 @@ class App extends Component {
 
     //to see how does it look like without JSX with using straight javascript:
     //return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Hello From React'));
-    
+
+    const name = 'Mahsa'
     return (
       <div className="App">
-        <h1>Hello From React</h1>
+        <h1>Hello {name}</h1>
       </div>
     );
   }
