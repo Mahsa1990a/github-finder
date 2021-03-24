@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
+import axios from 'axios';
 
 import './App.css';
 
@@ -8,18 +9,12 @@ import './App.css';
 
 class App extends Component {
 
+  //As soon as App runs this func will show up:
+  componentDidMount() {
+    axios.get('https://api.github.com/users').then(res => console.log("res.data: ", res.data))
+  }
+
   render() {
-
-    //to see how does it look like without JSX with using straight javascript:
-    //return React.createElement('div', { className: 'App' }, React.createElement('h1', null, 'Hello From React'));
-
-    // const name = 'Mahsa';
-    // const loading = false;
-    // const showName = true;
-
-    // if(loading) {
-    //   return <h4>Loading...</h4>
-    // }
 
     return (
       <div className="App">
