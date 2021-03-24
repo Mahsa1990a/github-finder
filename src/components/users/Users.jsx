@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import UserItem from './UserItem';
 
 class Users extends Component {
 
@@ -29,7 +30,7 @@ class Users extends Component {
       <div>
         {/* Loop through Users */}
         {this.state.users.map(user => (
-          <div>{user.login}</div>
+          <UserItem key={user.id} user={user}/>
         ))}
       </div>
     )
