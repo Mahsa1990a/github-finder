@@ -22,13 +22,16 @@ class App extends Component {
   // }     REFACTOR TO :
 
   async componentDidMount() {
-    
+
     //changing state is like:
     this.setState({ loading: true });
 
     const res = await axios
     .get('https://api.github.com/users');
-    console.log("res.data: ", res.data);
+    // console.log("res.data: ", res.data);
+
+    // After we made the request and we got response then we want to reset the state
+    this.setState({ users: res.data, loading: false });
   }
 
   render() {
