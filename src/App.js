@@ -9,6 +9,11 @@ import './App.css';
 
 class App extends Component {
 
+  state = {
+    users: [],
+    loading: false
+  }
+
   //As soon as App runs this func will show up:
   // componentDidMount() {
   //   axios
@@ -17,6 +22,10 @@ class App extends Component {
   // }     REFACTOR TO :
 
   async componentDidMount() {
+    
+    //changing state is like:
+    this.setState({ loading: true });
+
     const res = await axios
     .get('https://api.github.com/users');
     console.log("res.data: ", res.data);
