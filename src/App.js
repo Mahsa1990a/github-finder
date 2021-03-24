@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
-import UserItem from './components/users/UserItem';
+import Users from './components/users/Users';
 
 import './App.css';
 
@@ -26,7 +26,7 @@ class App extends Component {
         {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
 
         <Navbar />
-        <UserItem />
+        <Users />
       </div>
     );
   }

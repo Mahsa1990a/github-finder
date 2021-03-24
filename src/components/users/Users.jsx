@@ -27,7 +27,10 @@ class Users extends Component {
   render() {
     return (
       <div>
-        
+        {/* Loop through Users */}
+        {this.state.users.map(user => (
+          <div>{user.login}</div>
+        ))}
       </div>
     )
   }
