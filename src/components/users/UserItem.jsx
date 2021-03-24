@@ -25,9 +25,14 @@ import React from 'react'
     // const {login, avatar_url, html_url} = this.state; fetching from props:
     // const {login, avatar_url, html_url} = this.props.user;
 
-    // REFACTORING with functional component:
-const  UserItem = (props) => {
-  const {login, avatar_url, html_url} = props.user;
+
+// REFACTORING with functional component:
+
+// const  UserItem = (props) => {
+//   const {login, avatar_url, html_url} = props.user;          OR :
+
+const  UserItem = ({user: { login, avatar_url, html_url }}) => {
+    
   return (
     <div className="card text-center">
       <img src={avatar_url} alt='' className='round-img' style={{width: '60px'}} />
