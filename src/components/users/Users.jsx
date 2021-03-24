@@ -1,5 +1,6 @@
 import React from 'react';
 import UserItem from './UserItem';
+import Spinner from '../layout/Spinner';
 
 // class Users extends Component {
 
@@ -39,13 +40,18 @@ import UserItem from './UserItem';
 // }
 
 const Users = ({ users, loading }) => {
-  return(
-    <div style={userStyle}>
-      {users.map(user => (
-        <UserItem key={user.id} user={user}/>
-      ))}
-    </div>
-  )
+
+  if (loading) {
+    return <Spinner />
+  } else {
+    return(
+      <div style={userStyle}>
+        {users.map(user => (
+          <UserItem key={user.id} user={user}/>
+        ))}
+      </div>
+    );
+  }
 }
 
 const userStyle = {
@@ -54,4 +60,4 @@ const userStyle = {
   gridGap: '1rem'
 }
 
-export default Users
+export default Users;
