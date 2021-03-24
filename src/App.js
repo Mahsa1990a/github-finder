@@ -26,7 +26,10 @@ class App extends Component {
         {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
 
         <Navbar />
+        <div className='container'>
         <Users />
+        </div>
+
       </div>
     );
   }
