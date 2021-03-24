@@ -10,8 +10,16 @@ import './App.css';
 class App extends Component {
 
   //As soon as App runs this func will show up:
-  componentDidMount() {
-    axios.get('https://api.github.com/users').then(res => console.log("res.data: ", res.data))
+  // componentDidMount() {
+  //   axios
+  //   .get('https://api.github.com/users')
+  //   .then(res => console.log("res.data: ", res.data)); //will show all 30 githubs in console
+  // }     REFACTOR TO :
+
+  async componentDidMount() {
+    const res = await axios
+    .get('https://api.github.com/users');
+    console.log("res.data: ", res.data);
   }
 
   render() {
