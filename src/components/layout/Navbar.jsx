@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Navbar = (props) => {
+const Navbar = ({ icon, title }) => {
 
   //if we don't want to pass props in App => < Navbar /> we use :
   // static defaultProps = {
@@ -17,7 +17,7 @@ const Navbar = (props) => {
   return (
     <nav className='navbar bg-primary'>
       <h1>
-        <i className={props.icon}></i> {props.title}
+        <i className={icon}></i> {title}
       </h1>
     </nav>
   )
