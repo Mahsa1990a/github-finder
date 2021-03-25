@@ -7,6 +7,11 @@ class Search extends Component {
     text:''  //it's gonna be empty by default
   }
 
+  onSubmit = (e) => {
+    e.preventDefault();  //we have it with submit form
+    console.log(this.state.text)
+  }
+
   //onChange event for when we type sth in the input, it's Firing off and update the state 
   onChange = (e) => {   // e is even parameter
     // this.setState({ text: e.target.value });  //we set the setState to wathever we type in the box
@@ -18,7 +23,7 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <form className='form'>
+        <form onSubmit={this.onSubmit} className='form'>
           <input type="text" name='text' placeholder='Search Users...' value={this.state.text} onChange={this.onChange}/>
           <input type="submit" value='Search' className='btn btn-dark btn-block'/>
         </form>
