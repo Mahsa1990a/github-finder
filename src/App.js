@@ -36,8 +36,13 @@ class App extends Component {
   }
 
   //Search github Users
-  searchUsers = (text) => {
-    console.log('text', text);
+  searchUsers = async (text) => {
+    // console.log('text', text);
+    const res = await axios
+    .get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+
+    // After we made the request and we got response then we want to reset the state
+    this.setState({ users: res.data.items, loading: false });
   }
 
   render() {
