@@ -35,6 +35,11 @@ class App extends Component {
     this.setState({ users: res.data, loading: false });
   }
 
+  //Search github Users
+  searchUsers = (text) => {
+    console.log('text', text);
+  }
+
   render() {
 
     return (
@@ -43,7 +48,7 @@ class App extends Component {
 
         <Navbar />
         <div className='container'>
-          <Search />
+          <Search  searchUsers={this.searchUsers}/>
           <Users loading={this.state.loading} users={this.state.users}/>
         </div>
 
