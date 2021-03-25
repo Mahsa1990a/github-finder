@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
+import Search from './components/users/Search';
 import axios from 'axios';
 
 import './App.css';
@@ -22,7 +23,7 @@ class App extends Component {
   // }     REFACTOR TO :
 
   async componentDidMount() {
-    
+
     //changing state is like:
     this.setState({ loading: true });
 
@@ -42,7 +43,8 @@ class App extends Component {
 
         <Navbar />
         <div className='container'>
-        <Users loading={this.state.loading} users={this.state.users}/>
+          <Search />
+          <Users loading={this.state.loading} users={this.state.users}/>
         </div>
 
       </div>
