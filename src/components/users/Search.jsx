@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Search extends Component {
 
@@ -6,6 +7,10 @@ class Search extends Component {
   state = {
     text:''  //it's gonna be empty by default
   }
+
+  static propTypes = {
+    serachUsers: PropTypes.func.isRequired,
+  };
 
   onSubmit = (e) => {
     e.preventDefault();  //we have it with submit form
