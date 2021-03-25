@@ -9,7 +9,10 @@ class Search extends Component {
 
   //onChange event for when we type sth in the input, it's Firing off and update the state 
   onChange = (e) => {   // e is even parameter
-    this.setState({ text: e.target.value });  //we set the setState to wathever we type in the box
+    // this.setState({ text: e.target.value });  //we set the setState to wathever we type in the box
+
+    //if we have text or email or pass we can use name :
+    this.setState({ [e.target.name]: e.target.value }); // so now we can use this onChange event for all input if we need
   }
 
   render() {
