@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
+import Alert from './components/layout/Alert';
+
 import axios from 'axios';
 
 import './App.css';
@@ -60,7 +62,7 @@ class App extends Component {
 
   render() {
 
-    const { users, loading } = this.state;
+    const { users, loading, alert } = this.state;
 
     return (
       <div className="App">
@@ -69,6 +71,8 @@ class App extends Component {
         <Navbar />
         <div className='container'>
           {/*                About showClear:       So after we searched for user(means lenght of users would be more than 0) will show clear button not before */}
+          
+          <Alert alert={ alert }/>
           <Search 
             searchUsers={this.searchUsers} 
             clearUsers={this.clearUsers} 
