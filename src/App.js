@@ -58,6 +58,12 @@ class App extends Component {
   //Set Alert
   setAlert = (msg, type) => {
     this.setState({ alert: { msg, type } }); //OR: { alert: { msg: msg, type: type } }
+
+    // We need to remove alert after certain time:
+    setTimeout(() => {
+      //we want alert back to null
+      this.setState({ alert: null })
+    }, 5000);
   }
 
   render() {
