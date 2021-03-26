@@ -17,11 +17,18 @@ class Search extends Component {
   onSubmit = (e) => {
     e.preventDefault();  //we have it with submit form
     // console.log(this.state.text)
-    this.props.searchUsers(this.state.text); //we want to pass it up to App
 
-    //clear form after it:
-    this.setState({ text: '' })
-  }
+    //if we press serach without writing anything in serach box we get alert:
+    if (this.state.text === '') {
+      this.props.setAlert('Please Enter Something', 'light');
+    } else {
+
+      this.props.searchUsers(this.state.text); //we want to pass it up to App
+  
+      //clear form after it:
+      this.setState({ text: '' })
+    }
+  };
 
   //onChange event for when we type sth in the input, it's Firing off and update the state 
   onChange = (e) => {   // e is even parameter
