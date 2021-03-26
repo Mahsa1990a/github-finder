@@ -60,6 +60,7 @@ class App extends Component {
 
         <Navbar />
         <div className='container'>
+          {/*                About showClear:       So after we searched for user(means lenght of users would be more than 0) will show clear button not before */}
           <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} showClear={ this.state.users.length > 0 ? true : false }/>
           <Users loading={this.state.loading} users={this.state.users}/>
         </div>
