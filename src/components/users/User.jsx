@@ -8,6 +8,23 @@ class User extends Component {
   }
 
   render() {
+
+    //pulling all name, ... from this.state.user
+    const {
+      name,
+      avatar_url,
+      location,
+      bio,
+      blog,
+      html_url,
+      followers,
+      following,
+      public_repos,
+      public_gists,
+      hireable
+    } = this.props.user;
+
+
     return (
       <div>
         User
