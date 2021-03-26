@@ -55,7 +55,7 @@ class App extends Component {
   };
 
   //Get a single GitHub user:
-  getUser = async (username) => {
+  getUser = async (username) => {    // username or login
 
     this.setState({ loading: true });
 
