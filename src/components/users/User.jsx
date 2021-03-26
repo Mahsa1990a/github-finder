@@ -55,6 +55,7 @@ class User extends Component {
           <div>
             {/* some users may not have a bio so we say if bio is true && ... */}
             { bio && <Fragment><h3>Bio</h3><p>{bio}</p></Fragment>}
+            <a href={html_url} className='btn btn-dark my-1' target='_blank'> Visit GitHub Profile </a>
           </div>
         </div>
       </Fragment>
