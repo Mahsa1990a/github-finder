@@ -12,7 +12,8 @@ class App extends Component {
 
   state = {
     users: [],
-    loading: false
+    loading: false, 
+    alert: null
   }
 
   //As soon as App runs this func will show up:
@@ -45,11 +46,16 @@ class App extends Component {
 
     // After we made the request and we got response then we want to reset the state
     this.setState({ users: res.data.items, loading: false });
-  }
+  };
 
   //Clear users from state:
   clearUsers = () => {
     this.setState({ users:[], loading: false })
+  };
+
+  //Set Alert
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg: msg, type: type } });
   }
 
   render() {
@@ -63,7 +69,12 @@ class App extends Component {
         <Navbar />
         <div className='container'>
           {/*                About showClear:       So after we searched for user(means lenght of users would be more than 0) will show clear button not before */}
-          <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} showClear={ users.length > 0 ? true : false }/>
+          <Search 
+            searchUsers={this.searchUsers} 
+            clearUsers={this.clearUsers} 
+            showClear={ users.length > 0 ? true : false }
+            setAlert={this.setAlert}
+          />
           <Users loading={loading} users={users}/>
         </div>
 
