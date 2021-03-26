@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Spinner from "../layout/Spinner";
+import PropTypes from 'prop-types';
 
 class User extends Component {
 
@@ -6,6 +8,12 @@ class User extends Component {
   componentDidMount() {
     this.props.getUser(this.props.match.params.login)
   }
+
+  static propTypes = {
+    getUser: PropTypes.func.isRequired,
+    loading: PropTypes.bool,
+    user: PropTypes.object.isRequired
+  };
 
   render() {
 
