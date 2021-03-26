@@ -9,12 +9,13 @@ class Search extends Component {
   }
 
   static propTypes = {
-    serachUsers: PropTypes.func.isRequired,
-    clearUsers: PropTypes.func.isRequired,
+    searchUsers: PropTypes.func.isRequired,
+    clearUsers: PropTypes.func.isRequired
   };
 
   onSubmit = (e) => {
     e.preventDefault();  //we have it with submit form
+    // console.log(this.state.text)
     this.props.searchUsers(this.state.text); //we want to pass it up to App
 
     //clear form after it:

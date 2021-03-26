@@ -22,24 +22,24 @@ class App extends Component {
   //   .then(res => console.log("res.data: ", res.data)); //will show all 30 githubs in console
   // }     REFACTOR TO :
 
-  async componentDidMount() {
+  // async componentDidMount() {
 
-    //changing state is like:
-    this.setState({ loading: true });
+  //   //changing state is like:
+  //   this.setState({ loading: true });
 
-    const res = await axios
-    .get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-    // console.log("res.data: ", res.data);
+  //   const res = await axios
+  //   .get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+  //   // console.log("res.data: ", res.data);
 
-    // After we made the request and we got response then we want to reset the state
-    this.setState({ users: res.data, loading: false });
-  }
+  //   // After we made the request and we got response then we want to reset the state
+  //   this.setState({ users: res.data, loading: false });
+  // }
 
   //Search github Users
   searchUsers = async (text) => {
     // console.log('text', text);
 
-    this.setState({ loading: true }); //it shows spinner while trying to fetch whatever we searched
+    this.setState({ loading: true });
     const res = await axios
     .get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
@@ -48,7 +48,7 @@ class App extends Component {
   }
 
   //Clear users from state:
-  clearUsesrs = () => {
+  clearUsers = () => {
     this.setState({ users:[], loading: false })
   }
 
@@ -60,7 +60,7 @@ class App extends Component {
 
         <Navbar />
         <div className='container'>
-          <Search  searchUsers={this.searchUsers} clearUsesrs={this.clearUsesrs}/>
+          <Search searchUsers={this.searchUsers} clearUsers={this.clearUsers}/>
           <Users loading={this.state.loading} users={this.state.users}/>
         </div>
 
