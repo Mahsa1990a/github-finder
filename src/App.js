@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
@@ -71,24 +72,26 @@ class App extends Component {
     const { users, loading, alert } = this.state;
 
     return (
-      <div className="App">
-        {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
+      <Router>
+        <div className="App">
+          {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
 
-        <Navbar />
-        <div className='container'>
-          {/*                About showClear:       So after we searched for user(means lenght of users would be more than 0) will show clear button not before */}
-          
-          <Alert alert={ alert }/>
-          <Search 
-            searchUsers={this.searchUsers} 
-            clearUsers={this.clearUsers} 
-            showClear={ users.length > 0 ? true : false }
-            setAlert={this.setAlert}
-          />
-          <Users loading={loading} users={users}/>
+          <Navbar />
+          <div className='container'>
+            {/*                About showClear:       So after we searched for user(means lenght of users would be more than 0) will show clear button not before */}
+            
+            <Alert alert={ alert }/>
+            <Search 
+              searchUsers={this.searchUsers} 
+              clearUsers={this.clearUsers} 
+              showClear={ users.length > 0 ? true : false }
+              setAlert={this.setAlert}
+            />
+            <Users loading={loading} users={users}/>
+          </div>
+
         </div>
-
-      </div>
+      </Router>
     );
   }
 }
