@@ -21,10 +21,12 @@ class User extends Component {
     //pulling all name, ... from this.state.user
     const {
       name,
+      company,
       avatar_url,
       location,
       bio,
       blog,
+      login,
       html_url,
       followers,
       following,
@@ -56,6 +58,18 @@ class User extends Component {
             {/* some users may not have a bio so we say if bio is true && ... */}
             { bio && <Fragment><h3>Bio</h3><p>{bio}</p></Fragment>}
             <a href={html_url} className='btn btn-dark my-1' target='_blank'> Visit GitHub Profile </a>
+
+            <ul>
+              <li>
+                { login && <Fragment><strong>Username: </strong> {login} </Fragment>}
+              </li>
+              <li>
+                { company && <Fragment><strong>Company: </strong> {company} </Fragment>}
+              </li>
+              <li>
+                { blog && <Fragment><strong>Website: </strong> {blog} </Fragment>}
+              </li>
+            </ul>
           </div>
         </div>
       </Fragment>
