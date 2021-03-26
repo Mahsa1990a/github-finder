@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
+import About from './components/pages/About';
 
 import axios from 'axios';
 
@@ -78,22 +79,26 @@ class App extends Component {
 
           <Navbar />
           <div className='container'>
-            {/*                About showClear:       So after we searched for user(means lenght of users would be more than 0) will show clear button not before */}
-            
+           
             <Alert alert={ alert }/>
             <Switch>
-              <Route exact path='/' render={props => (
+              <Route 
+                exact path='/' render={props => (
 
-                <Fragment>
-                  <Search 
-                    searchUsers={this.searchUsers} 
-                    clearUsers={this.clearUsers} 
-                    showClear={ users.length > 0 ? true : false }
-                    setAlert={this.setAlert}
-                  />
-                  <Users loading={loading} users={users}/>
-                </Fragment>
-              )} />
+                  <Fragment>
+                    <Search 
+                      searchUsers={this.searchUsers} 
+                      clearUsers={this.clearUsers} 
+                      // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
+                      showClear={ users.length > 0 ? true : false }
+                      setAlert={this.setAlert}
+                    />
+                    <Users loading={loading} users={users}/>
+                  </Fragment>
+                )} 
+              />
+              {/* Since it's a single component we say: component={About} */}
+              <Route exact path='/about' component={About} /> 
             </Switch>
           </div>
 
