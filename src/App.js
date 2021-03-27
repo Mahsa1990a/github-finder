@@ -74,7 +74,7 @@ class App extends Component {
     this.setState({ loading: true });
 
     const res = await axios
-    .get(`https://api.github.com/users/${username}/repos?per_pages=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+    .get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     // After we made the request and we got response then we want to reset the state
     this.setState({ repos: res.data, loading: false });

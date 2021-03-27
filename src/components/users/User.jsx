@@ -81,7 +81,7 @@ class User extends Component {
           <div className="badge badge-dark">Public Gists: {public_gists}</div>
         </div>
       </Fragment>
-    )
+    );
   }
 }
 
