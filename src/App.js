@@ -99,7 +99,7 @@ class App extends Component {
 
   render() {
 
-    const { users, loading, alert, user } = this.state;
+    const { users, loading, alert, user, repos } = this.state;
 
     return (
       <Router>
@@ -129,7 +129,7 @@ class App extends Component {
               {/* Since it's a single component we say: component={About} */}
               <Route exact path='/about' component={About} /> 
               <Route exact path='/user/:login' render={props => (
-                <User { ...props } getUser={this.getUser} user={user} loading={loading} />
+                <User { ...props } getUser={this.getUser} getUserRepos={this.getUserRepos} user={user} repos={repos} loading={loading} />
               )} />
             </Switch>
           </div>
