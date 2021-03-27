@@ -7,13 +7,15 @@ class User extends Component {
 
   //It will fire off right away as soon as this component loaded:
   componentDidMount() {
-    this.props.getUser(this.props.match.params.login)
+    this.props.getUser(this.props.match.params.login);
+    this.props.getUserRepos(this.props.match.params.login);
   }
 
   static propTypes = {
     getUser: PropTypes.func.isRequired,
     loading: PropTypes.bool,
-    user: PropTypes.object.isRequired
+    user: PropTypes.object.isRequired,
+    getUserRepos: PropTypes.func.isRequired
   };
 
   render() {
