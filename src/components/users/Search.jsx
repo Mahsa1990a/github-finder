@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 const Search = ({ searchUsers, showClear, clearUsers }) => {
 
   //when we have form we want to attach state to the input:
-  state = {
-    text:''  //it's gonna be empty by default
-  }
+  // state = {
+  //   text:''  //it's gonna be empty by default
+  // }    UPDATE TO:
+  const [text, setText] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();  //we have it with submit form
