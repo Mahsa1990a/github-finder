@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // class Search extends Component { Refactoring into functional component
-const Search = ({ searchUsers, showClear, clearUsers }) => {
+const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
 
   //when we have form we want to attach state to the input:
   // state = {
@@ -15,14 +15,16 @@ const Search = ({ searchUsers, showClear, clearUsers }) => {
     // console.log(this.state.text)
 
     //if we press serach without writing anything in serach box we get alert:
-    if (this.state.text === '') {
-      this.props.setAlert('Please Enter Something', 'light');
+    if (text === '') {
+      // this.props.setAlert('Please Enter Something', 'light'); UPDATE TO:
+      setAlert('Please Enter Something', 'light');
     } else {
 
-      this.props.searchUsers(this.state.text); //we want to pass it up to App
+      searchUsers(this.state.text); //we want to pass it up to App
   
       //clear form after it:
-      this.setState({ text: '' })
+      // this.setState({ text: '' }); UPDATED TO:
+      setText(''); 
     }
   };
 
@@ -31,14 +33,15 @@ const Search = ({ searchUsers, showClear, clearUsers }) => {
     // this.setState({ text: e.target.value });  //we set the setState to wathever we type in the box
 
     //if we have text or email or pass we can use name :
-    this.setState({ [e.target.name]: e.target.value }); // so now we can use this onChange event for all input if we need
+    // this.setState({ [e.target.name]: e.target.value }); // so now we can use this onChange event for all input if we need //UPDATE TO:
+    setText(e.target.value); // so now we can use this onChange event for all input if we need
   }
 
 
   return (
     <div>
-      <form onSubmit={this.onSubmit} className='form'>
-        <input type="text" name='text' placeholder='Search Users...' value={this.state.text} onChange={this.onChange}/>
+      <form onSubmit={onSubmit} className='form'>
+        <input type="text" name='text' placeholder='Search Users...' value={text} onChange={onChange}/>
         <input type="submit" value='Search' className='btn btn-dark btn-block'/>
       </form>
       {/* So after we searched for user will show clear button not before */}
@@ -56,4 +59,4 @@ Search.propTypes = {
   setAlert: PropTypes.func.isRequired
 };
 
-export default Search
+export default Search;
