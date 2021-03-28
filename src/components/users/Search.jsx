@@ -20,7 +20,7 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
       setAlert('Please Enter Something', 'light');
     } else {
 
-      searchUsers(this.state.text); //we want to pass it up to App  // UPDATE TO:
+      // searchUsers(this.state.text); //we want to pass it up to App  // UPDATE TO:
       searchUsers(text); //we want to pass it up to App
   
       //clear form after it:
