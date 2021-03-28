@@ -21,7 +21,6 @@ class User extends Component {
   };
 
   render() {
-
     //pulling all name, ... from this.state.user
     const {
       name,
