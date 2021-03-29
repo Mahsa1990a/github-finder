@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from './components/layout/Navbar';
 import Users from './components/users/Users';
@@ -11,17 +11,21 @@ import axios from 'axios';
 
 import './App.css';
 
-//For now for learning class based component we're gonna start with it:
+const App = () => {
 
-class App extends Component {
+  // state = {
+  //   users: [],
+  //   user: {},
+  //   repos: [],
+  //   loading: false, 
+  //   alert: null
+  // }     UPDATE TO:
 
-  state = {
-    users: [],
-    user: {},
-    repos: [],
-    loading: false, 
-    alert: null
-  }
+  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState({});
+  const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState(null);
 
   //As soon as App runs this func will show up:
   // componentDidMount() {
@@ -97,47 +101,44 @@ class App extends Component {
     }, 5000);
   }
 
-  render() {
+  const { users, loading, alert, user, repos } = this.state;
 
-    const { users, loading, alert, user, repos } = this.state;
+  return (
+    <Router>
+      <div className="App">
+        {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
 
-    return (
-      <Router>
-        <div className="App">
-          {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
-
-          <Navbar />
-          <div className='container'>
+        <Navbar />
+        <div className='container'>
            
-            <Alert alert={ alert }/>
-            <Switch>
-              <Route 
-                exact path='/' render={props => (
+          <Alert alert={ alert }/>
+          <Switch>
+            <Route 
+              exact path='/' render={props => (
 
-                  <Fragment>
-                    <Search 
-                      searchUsers={this.searchUsers} 
-                      clearUsers={this.clearUsers} 
-                      // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
-                      showClear={ users.length > 0 ? true : false }
-                      setAlert={this.setAlert}
-                    />
-                    <Users loading={loading} users={users}/>
-                  </Fragment>
-                )} 
-              />
-              {/* Since it's a single component we say: component={About} */}
-              <Route exact path='/about' component={About} /> 
-              <Route exact path='/user/:login' render={props => (
-                <User { ...props } getUser={this.getUser} getUserRepos={this.getUserRepos} user={user} repos={repos} loading={loading} />
-              )} />
-            </Switch>
-          </div>
-
+                <Fragment>
+                  <Search 
+                    searchUsers={this.searchUsers} 
+                    clearUsers={this.clearUsers} 
+                    // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
+                    showClear={ users.length > 0 ? true : false }
+                    setAlert={this.setAlert}
+                  />
+                  <Users loading={loading} users={users}/>
+                </Fragment>
+              )} 
+            />
+            {/* Since it's a single component we say: component={About} */}
+            <Route exact path='/about' component={About} /> 
+            <Route exact path='/user/:login' render={props => (
+              <User { ...props } getUser={this.getUser} getUserRepos={this.getUserRepos} user={user} repos={repos} loading={loading} />
+            )} />
+          </Switch>
         </div>
-      </Router>
-    );
-  }
+
+      </div>
+    </Router>
+  );
 }
 
 export default App;
