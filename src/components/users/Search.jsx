@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import GithubContext from "../../context/github/githubContext";
 
 // class Search extends Component { Refactoring into functional component
 const Search = ({ showClear, clearUsers, setAlert }) => {
+  const githubContext = useContext(GithubContext); //useContext is a hook
 
   //when we have form we want to attach state to the input:
   // state = {
@@ -22,7 +23,8 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
     } else {
 
       // searchUsers(this.state.text); //we want to pass it up to App  // UPDATE TO:
-      searchUsers(text); //we want to pass it up to App
+      // searchUsers(text); //we want to pass it up to App  ... update:
+      githubContext.searchUsers(text);
   
       //clear form after it:
       // this.setState({ text: '' }); UPDATED TO:
