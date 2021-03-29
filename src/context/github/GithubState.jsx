@@ -40,6 +40,9 @@ const GithubState = (props) => {
   // Clear Users
 
   // Set loading
+  const setLoading = () => { //we want setLoading to dispatch to reducer
+    dispatch({ type: SET_LOADING });
+  }
 
   return(
     //  we have to wrap our whole app with provider
