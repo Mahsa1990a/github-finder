@@ -7,10 +7,15 @@ import { Link } from "react-router-dom";
 const User = ({ loading, repos, user, getUser, getUserRepos, match }) => {
 
   //It will fire off right away as soon as this component loaded:
-  componentDidMount() {
-    this.props.getUser(this.props.match.params.login);
-    this.props.getUserRepos(this.props.match.params.login);
-  }
+  // componentDidMount() {
+  //   this.props.getUser(this.props.match.params.login);
+  //   this.props.getUserRepos(this.props.match.params.login);
+  // } UPDATE TO useEffect:
+
+  useEffect(() => {
+    getUser(match.params.login);
+    getUserRepos(match.params.login);
+  }, []); //stop for loop (to mimic componentDidMount)
 
     //pulling all name, ... from this.state.user
   const {
