@@ -27,6 +27,19 @@ const GithubState = (props) => {
   // Clear Users
 
   // Set loading
+
+  return(
+    //  we have to wrap our whole app with provider
+    <GithubContext.Provider
+      value={{ //value is a prop  ... point is we're making it available for entire app
+        users: state.users,
+        user: state.user,
+        repos: state.repos,
+        loading: state.loading
+      }}
+    >
+    </GithubContext.Provider>
+  )
 }
 
 export default GithubState;
