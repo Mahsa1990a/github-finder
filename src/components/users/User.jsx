@@ -15,6 +15,7 @@ const User = ({ loading, repos, user, getUser, getUserRepos, match }) => {
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
+    // eslint-disable-next-line
   }, []); //stop for loop (to mimic componentDidMount)
 
     //pulling all name, ... from this.state.user
