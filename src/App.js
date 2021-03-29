@@ -6,6 +6,7 @@ import User from './components/users/User';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
+import GithubState from "./context/github/GithubState";
 
 import axios from 'axios';
 
@@ -116,40 +117,42 @@ const App = () => {
   // const { users, loading, alert, user, repos } = this.state;
 
   return (
-    <Router>
-      <div className="App">
-        {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
+    <GithubState>
+      <Router>
+        <div className="App">
+          {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
 
-        <Navbar />
-        <div className='container'>
-           
-          <Alert alert={ alert }/>
-          <Switch>
-            <Route 
-              exact path='/' render={props => (
+          <Navbar />
+          <div className='container'>
+            
+            <Alert alert={ alert }/>
+            <Switch>
+              <Route 
+                exact path='/' render={props => (
 
-                <Fragment>
-                  <Search 
-                    searchUsers={searchUsers} 
-                    clearUsers={clearUsers} 
-                    // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
-                    showClear={ users.length > 0 ? true : false }
-                    setAlert={showAlert}
-                  />
-                  <Users loading={loading} users={users}/>
-                </Fragment>
-              )} 
-            />
-            {/* Since it's a single component we say: component={About} */}
-            <Route exact path='/about' component={About} /> 
-            <Route exact path='/user/:login' render={props => (
-              <User { ...props } getUser={getUser} getUserRepos={getUserRepos} user={user} repos={repos} loading={loading} />
-            )} />
-          </Switch>
+                  <Fragment>
+                    <Search 
+                      searchUsers={searchUsers} 
+                      clearUsers={clearUsers} 
+                      // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
+                      showClear={ users.length > 0 ? true : false }
+                      setAlert={showAlert}
+                    />
+                    <Users loading={loading} users={users}/>
+                  </Fragment>
+                )} 
+              />
+              {/* Since it's a single component we say: component={About} */}
+              <Route exact path='/about' component={About} /> 
+              <Route exact path='/user/:login' render={props => (
+                <User { ...props } getUser={getUser} getUserRepos={getUserRepos} user={user} repos={repos} loading={loading} />
+              )} />
+            </Switch>
+          </div>
+
         </div>
-
-      </div>
-    </Router>
+      </Router>
+    </GithubState>
   );
 }
 
