@@ -51,53 +51,65 @@ const App = () => {
   searchUsers = async (text) => {
     // console.log('text', text);
 
-    this.setState({ loading: true });
+    // this.setState({ loading: true }); UPDATE:
+    setLoading(true);
     const res = await axios
     .get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     // After we made the request and we got response then we want to reset the state
-    this.setState({ users: res.data.items, loading: false });
+    // this.setState({ users: res.data.items, loading: false }); UPDATE:
+    setUsers(res.data.items);
+    setLoading(false);
   };
 
   //Get a single GitHub user:
   getUser = async (username) => {    // username or login
 
-    this.setState({ loading: true });
+    // this.setState({ loading: true }); UPDATE:
+    setLoading(true);
 
     const res = await axios
     .get(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     // After we made the request and we got response then we want to reset the state
-    this.setState({ user: res.data, loading: false });
-
+    // this.setState({ user: res.data, loading: false }); UPDATE:
+    setUser(res.data);
+    setLoading(false);
   }
 
   //Get users repos:
   getUserRepos = async (username) => {    // username or login
 
-    this.setState({ loading: true });
+    // this.setState({ loading: true }); UPDATE:
+    setLoading(true);
 
     const res = await axios
     .get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     // After we made the request and we got response then we want to reset the state
-    this.setState({ repos: res.data, loading: false });
+    // this.setState({ repos: res.data, loading: false }); UPDATE:
+    setRepos(res.data);
+    setLoading(false);
 
   }
 
   //Clear users from state:
   clearUsers = () => {
-    this.setState({ users:[], loading: false })
+    // this.setState({ users:[], loading: false }) UPDATE:
+    setUsers([]);
+    setLoading(false);
   };
 
   //Set Alert
   setAlert = (msg, type) => {
-    this.setState({ alert: { msg, type } }); //OR: { alert: { msg: msg, type: type } }
+    // this.setState({ alert: { msg, type } }); //OR: { alert: { msg: msg, type: type } } UPDATE:
+    setAlert({ msg, type });
 
     // We need to remove alert after certain time:
     setTimeout(() => {
       //we want alert back to null
-      this.setState({ alert: null })
+      // this.setState({ alert: null }) UPDATE:
+      setAlert(null);
     }, 5000);
   }
 
