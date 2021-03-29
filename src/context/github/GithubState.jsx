@@ -23,14 +23,19 @@ const GithubState = (props) => {
     // console.log('text', text);
 
     // this.setState({ loading: true }); UPDATE:
-    setLoading(true);
+    // setLoading(true); update:
+    setLoading();
     const res = await axios
     .get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     // After we made the request and we got response then we want to reset the state
     // this.setState({ users: res.data.items, loading: false }); UPDATE:
-    setUsers(res.data.items);
-    setLoading(false);
+    // setLoading(false); don't need it anymore
+    // setUsers(res.data.items); update:
+    dispatch({ 
+      type: SEARCH_USERS,
+      payload: res.data
+     })
   };
 
   // Get User
