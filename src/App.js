@@ -48,7 +48,7 @@ const App = () => {
   // }
 
   //Search github Users
-  searchUsers = async (text) => {
+  const searchUsers = async (text) => {
     // console.log('text', text);
 
     // this.setState({ loading: true }); UPDATE:
@@ -63,7 +63,7 @@ const App = () => {
   };
 
   //Get a single GitHub user:
-  getUser = async (username) => {    // username or login
+  const getUser = async (username) => {    // username or login
 
     // this.setState({ loading: true }); UPDATE:
     setLoading(true);
@@ -78,7 +78,7 @@ const App = () => {
   }
 
   //Get users repos:
-  getUserRepos = async (username) => {    // username or login
+  const getUserRepos = async (username) => {    // username or login
 
     // this.setState({ loading: true }); UPDATE:
     setLoading(true);
@@ -94,14 +94,14 @@ const App = () => {
   }
 
   //Clear users from state:
-  clearUsers = () => {
+  const clearUsers = () => {
     // this.setState({ users:[], loading: false }) UPDATE:
     setUsers([]);
     setLoading(false);
   };
 
   //Set Alert
-  setAlert = (msg, type) => {
+  const showAlert = (msg, type) => {
     // this.setState({ alert: { msg, type } }); //OR: { alert: { msg: msg, type: type } } UPDATE:
     setAlert({ msg, type });
 
@@ -113,7 +113,7 @@ const App = () => {
     }, 5000);
   }
 
-  const { users, loading, alert, user, repos } = this.state;
+  // const { users, loading, alert, user, repos } = this.state;
 
   return (
     <Router>
@@ -130,11 +130,11 @@ const App = () => {
 
                 <Fragment>
                   <Search 
-                    searchUsers={this.searchUsers} 
-                    clearUsers={this.clearUsers} 
+                    searchUsers={searchUsers} 
+                    clearUsers={clearUsers} 
                     // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
                     showClear={ users.length > 0 ? true : false }
-                    setAlert={this.setAlert}
+                    setAlert={showAlert}
                   />
                   <Users loading={loading} users={users}/>
                 </Fragment>
@@ -143,7 +143,7 @@ const App = () => {
             {/* Since it's a single component we say: component={About} */}
             <Route exact path='/about' component={About} /> 
             <Route exact path='/user/:login' render={props => (
-              <User { ...props } getUser={this.getUser} getUserRepos={this.getUserRepos} user={user} repos={repos} loading={loading} />
+              <User { ...props } getUser={getUser} getUserRepos={getUserRepos} user={user} repos={repos} loading={loading} />
             )} />
           </Switch>
         </div>
