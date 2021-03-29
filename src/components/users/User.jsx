@@ -4,7 +4,7 @@ import Repos from '../repos/Repos';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
-const User = () => {
+const User = ({ loading, repos, user, getUser, getUserRepos, match }) => {
 
   //It will fire off right away as soon as this component loaded:
   componentDidMount() {
@@ -27,9 +27,10 @@ const User = () => {
     public_repos,
     public_gists,
     hireable
-  } = this.props.user;
+  } = user;
+// } = this.props.user;
 
-  const { loading, repos } = this.props;
+  // const { loading, repos } = this.props;
 
   if (loading) {
     return <Spinner />
