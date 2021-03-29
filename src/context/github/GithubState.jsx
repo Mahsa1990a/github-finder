@@ -15,6 +15,18 @@ const GithubState = (props) => {
     repos: [],
     loading: false
   }
+
+  const [state, dispatch] = useReducer(GithubReducer, initialState);
+
+  // Search Users
+
+  // Get User
+
+  // Get repos
+
+  // Clear Users
+
+  // Set loading
 }
 
 export default GithubState;
