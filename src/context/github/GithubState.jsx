@@ -35,22 +35,27 @@ const GithubState = (props) => {
     dispatch({ 
       type: SEARCH_USERS,
       payload: res.data.items
-     })
+     });
   };
 
   // Get User
   const getUser = async (username) => {    // username or login
 
-    // this.setState({ loading: true }); UPDATE:
-    setLoading(true);
+    // this.setState({ loading: true }); UPDATE1:
+    // setLoading(true); UDPDATE2:
+    setLoading(); //doesn't need a value because we defined this func below
 
     const res = await axios
     .get(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
 
     // After we made the request and we got response then we want to reset the state
-    // this.setState({ user: res.data, loading: false }); UPDATE:
-    setUser(res.data);
-    setLoading(false);
+    // this.setState({ user: res.data, loading: false }); UPDATE1:
+    // setUser(res.data);
+    // setLoading(false); UPDATE2:
+    dispatch({ 
+      type: GET_USER,
+      payload: res.data
+     });
   }
 
   // Get repos
