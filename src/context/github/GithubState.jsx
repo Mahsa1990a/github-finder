@@ -43,6 +43,11 @@ const GithubState = (props) => {
   // Get repos
 
   // Clear Users
+  const clearUsers = () => {
+    // this.setState({ users:[], loading: false }) UPDATE:
+    setUsers([]);
+    setLoading(false);
+  };
 
   // Set loading
   const setLoading = () => { //we want setLoading to dispatch to reducer

@@ -41,10 +41,12 @@ import GithubContext from '../../context/github/githubContext';
 //   }
 // }
 
-const Users = ({ users, loading }) => {
+const Users = () => {
 
   //initialize GithubContext:
-  const githubContext = useContext(GithubContext)
+  const githubContext = useContext(GithubContext);
+  //instead of doing loading.githubContext:
+  const { loading, users } = githubContext;
 
   if (loading) {
     return <Spinner />
