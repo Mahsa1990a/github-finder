@@ -1,5 +1,6 @@
 import React from 'react';
 
+// If someone serach http://localhost:3002/iuhydfhoiah will show this page
 const NotFound = () => {
   return (
     <div>
