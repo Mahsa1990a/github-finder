@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import GithubContext from "../../context/github/githubContext";
 
 // class Search extends Component { Refactoring into functional component
-const Search = ({ showClear, clearUsers, setAlert }) => {
+// const Search = ({ showClear, clearUsers, setAlert }) => { update to after moving them from App into GithubState:
+const Search = ({ setAlert }) => {
   const githubContext = useContext(GithubContext); //useContext is a hook
 
   //when we have form we want to attach state to the input:
@@ -49,8 +50,9 @@ const Search = ({ showClear, clearUsers, setAlert }) => {
         <input type="submit" value='Search' className='btn btn-dark btn-block'/>
       </form>
       {/* So after we searched for user will show clear button not before */}
-      {showClear &&
-        <button className='btn btn-light btn-block' onClick={clearUsers}>Clear</button>
+      {/* {showClear && we no longer have it so: */}
+      {githubContext.users.length > 0 &&
+        <button className='btn btn-light btn-block' onClick={githubContext.clearUsers}>Clear</button>
       }
     </div>
   )
