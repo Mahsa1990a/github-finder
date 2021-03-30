@@ -1,10 +1,15 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import Spinner from "../layout/Spinner";
 import Repos from '../repos/Repos';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
+import GithubContext from "../../context/github/githubContext";
 
-const User = ({ loading, repos, user, getUser, getUserRepos, match }) => {
+// const User = ({ loading, repos, user, getUser, getUserRepos, match }) => { UPdate:
+const User = ({ repos, getUserRepos, match }) => { 
+
+  //initialize GithubContext:
+  const githubContext = useContext(GithubContext);
 
   //It will fire off right away as soon as this component loaded:
   // componentDidMount() {
@@ -17,6 +22,9 @@ const User = ({ loading, repos, user, getUser, getUserRepos, match }) => {
     getUserRepos(match.params.login);
     // eslint-disable-next-line
   }, []); //stop for loop (to mimic componentDidMount)
+
+  //they are coming from githubContext not prop anymore
+  const { getUser, user, loading } = githubContext
 
     //pulling all name, ... from this.state.user
   const {
