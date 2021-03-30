@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 import GithubContext from "../../context/github/githubContext";
+import AlertContext from "../../context/alert/alertContext";
 
 // class Search extends Component { Refactoring into functional component
 // const Search = ({ showClear, clearUsers, setAlert }) => { update to after moving them from App into GithubState:
-const Search = ({ setAlert }) => {
+const Search = () => {
   const githubContext = useContext(GithubContext); //useContext is a hook
+  const alertContext = useContext(AlertContext);
+
 
   //when we have form we want to attach state to the input:
   // state = {
@@ -20,7 +22,7 @@ const Search = ({ setAlert }) => {
     //if we press serach without writing anything in serach box we get alert:
     if (text === '') {
       // this.props.setAlert('Please Enter Something', 'light'); UPDATE TO:
-      setAlert('Please Enter Something', 'light');
+      alertContext.setAlert('Please Enter Something', 'light');
     } else {
 
       // searchUsers(this.state.text); //we want to pass it up to App  // UPDATE TO:
@@ -58,11 +60,11 @@ const Search = ({ setAlert }) => {
   )
 }
 
-Search.propTypes = {
-  // searchUsers: PropTypes.func.isRequired,
-  // clearUsers: PropTypes.func.isRequired,
-  // showClear: PropTypes.bool.isRequired,
-  setAlert: PropTypes.func.isRequired
-};
+// Search.propTypes = {
+//   // searchUsers: PropTypes.func.isRequired,
+//   // clearUsers: PropTypes.func.isRequired,
+//   // showClear: PropTypes.bool.isRequired,
+//   setAlert: PropTypes.func.isRequired
+// };
 
 export default Search;

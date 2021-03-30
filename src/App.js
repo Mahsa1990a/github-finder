@@ -75,14 +75,7 @@ const App = () => {
                   exact path='/' render={props => (
 
                     <Fragment>
-                      <Search 
-                        // searchUsers={searchUsers}  we'll access it through context
-                        // clearUsers={clearUsers} //no need anymore because we moved it into GithubState.jsx
-                        // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
-                        // showClear={ users.length > 0 ? true : false } no need anymore because we moved it into GithubState.jsx
-                        // setAlert={showAlert}
-                      />
-                      {/* <Users loading={loading} users={users}/>  these are part of app level state(context) */}
+                      <Search />
                       <Users />
                     </Fragment>
                   )} 

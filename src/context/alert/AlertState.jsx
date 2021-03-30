@@ -4,9 +4,7 @@ import AlertReducer from "./alertReducer";
 import { SET_ALERT, REMOVE_ALERT } from "../types";
 
 const AlertState = (props) => {
-  const initialState = {
-    alerts: null
-  };
+  const initialState = null; //alert: null
 
   const [state, dispatch] = useReducer(AlertReducer, initialState);
 
@@ -36,7 +34,7 @@ const AlertState = (props) => {
     <AlertContext.Provider
       value={{ //value is a prop  ... point is we're making it available for entire app
         //anything we want to be available we need to add it here
-        alert: state.alerts,
+        alert: state,
         setAlert
       }}
     >
