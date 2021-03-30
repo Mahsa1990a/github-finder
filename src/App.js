@@ -52,21 +52,7 @@ const App = () => {
 
   //Get a single GitHub user: Moved it into GithubState.jsx
 
-  //Get users repos:
-  const getUserRepos = async (username) => {    // username or login
-
-    // this.setState({ loading: true }); UPDATE:
-    setLoading(true);
-
-    const res = await axios
-    .get(`https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-
-    // After we made the request and we got response then we want to reset the state
-    // this.setState({ repos: res.data, loading: false }); UPDATE:
-    setRepos(res.data);
-    setLoading(false);
-
-  }
+  //Get users repos: Moved it into GiyhubState.jsx
 
   //Clear users from state: move it to githubState.jsx
 
@@ -114,10 +100,11 @@ const App = () => {
               />
               {/* Since it's a single component we say: component={About} */}
               <Route exact path='/about' component={About} /> 
-              <Route exact path='/user/:login' render={props => (
+              <Route exact path='/user/:login'
                 // <User { ...props } getUser={getUser} getUserRepos={getUserRepos} user={user} repos={repos} loading={loading} /> update:
-                <User { ...props } getUserRepos={getUserRepos} repos={repos} />
-              )} />
+                // <User { ...props } getUserRepos={getUserRepos} repos={repos} /> update:
+                  component={User}
+               />
             </Switch>
           </div>
 
