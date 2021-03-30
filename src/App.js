@@ -50,20 +50,7 @@ const App = () => {
 
   //Search github Users : Moved it into GithubState.jsx
 
-  //Get a single GitHub user:
-  const getUser = async (username) => {    // username or login
-
-    // this.setState({ loading: true }); UPDATE:
-    setLoading(true);
-
-    const res = await axios
-    .get(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_GITHUB_CLINET_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-
-    // After we made the request and we got response then we want to reset the state
-    // this.setState({ user: res.data, loading: false }); UPDATE:
-    setUser(res.data);
-    setLoading(false);
-  }
+  //Get a single GitHub user: Moved it into GithubState.jsx
 
   //Get users repos:
   const getUserRepos = async (username) => {    // username or login
