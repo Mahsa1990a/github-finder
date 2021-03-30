@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 import GithubContext from "../../context/github/githubContext";
 
 // const User = ({ loading, repos, user, getUser, getUserRepos, match }) => { UPdate:
-const User = ({ repos, getUserRepos, match }) => { 
+const User = ({ match }) => { 
 
   //initialize GithubContext:
   const githubContext = useContext(GithubContext);
 
   //they are coming from githubContext not prop anymore
-  const { getUser, user, loading } = githubContext;
+  const { getUser, user, loading, repos, getUserRepos } = githubContext;
 
   //It will fire off right away as soon as this component loaded:
   // componentDidMount() {
@@ -93,12 +93,12 @@ const User = ({ repos, getUserRepos, match }) => {
   );
 }
 
-User.propTypes = {
-  // getUser: PropTypes.func.isRequired,
-  // loading: PropTypes.bool,
-  // user: PropTypes.object.isRequired,
-  repos: PropTypes.array.isRequired,
-  getUserRepos: PropTypes.func.isRequired
-};
+// User.propTypes = {
+//   // getUser: PropTypes.func.isRequired,
+//   // loading: PropTypes.bool,
+//   // user: PropTypes.object.isRequired,
+//   repos: PropTypes.array.isRequired,
+//   getUserRepos: PropTypes.func.isRequired
+// };
 
 export default User;
