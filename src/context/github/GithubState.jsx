@@ -44,9 +44,10 @@ const GithubState = (props) => {
 
   // Clear Users
   const clearUsers = () => {
-    // this.setState({ users:[], loading: false }) UPDATE:
-    setUsers([]);
-    setLoading(false);
+    // this.setState({ users:[], loading: false }) UPDATE1:
+    // setUsers([]);
+    // setLoading(false); UPDATE2:
+    dispatch({ type: CLEAR_USERS });
   };
 
   // Set loading
