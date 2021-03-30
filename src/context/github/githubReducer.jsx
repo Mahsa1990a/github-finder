@@ -1,4 +1,4 @@
-import { Switch } from "react-router-dom";
+
 import { SEARCH_USERS, SET_LOADING, CLEAR_USERS, GET_USER, GET_REPOS } from "../types";
 
 export default (state, action) => {
@@ -12,7 +12,7 @@ export default (state, action) => {
     case GET_USER:
       return {
         ...state,
-        users: action.payload, 
+        user: action.payload, 
         loading: false
       }
     case CLEAR_USERS:

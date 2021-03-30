@@ -11,6 +11,9 @@ const User = ({ repos, getUserRepos, match }) => {
   //initialize GithubContext:
   const githubContext = useContext(GithubContext);
 
+  //they are coming from githubContext not prop anymore
+  const { getUser, user, loading } = githubContext;
+
   //It will fire off right away as soon as this component loaded:
   // componentDidMount() {
   //   this.props.getUser(this.props.match.params.login);
@@ -22,9 +25,6 @@ const User = ({ repos, getUserRepos, match }) => {
     getUserRepos(match.params.login);
     // eslint-disable-next-line
   }, []); //stop for loop (to mimic componentDidMount)
-
-  //they are coming from githubContext not prop anymore
-  const { getUser, user, loading } = githubContext
 
     //pulling all name, ... from this.state.user
   const {
@@ -94,9 +94,9 @@ const User = ({ repos, getUserRepos, match }) => {
 }
 
 User.propTypes = {
-  getUser: PropTypes.func.isRequired,
-  loading: PropTypes.bool,
-  user: PropTypes.object.isRequired,
+  // getUser: PropTypes.func.isRequired,
+  // loading: PropTypes.bool,
+  // user: PropTypes.object.isRequired,
   repos: PropTypes.array.isRequired,
   getUserRepos: PropTypes.func.isRequired
 };
