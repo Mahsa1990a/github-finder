@@ -25,7 +25,7 @@ const App = () => {
   // const [user, setUser] = useState({});
   // const [repos, setRepos] = useState([]);
   // const [loading, setLoading] = useState(false);
-  const [alert, setAlert] = useState(null);
+  // const [alert, setAlert] = useState(null);
 
   //As soon as App runs this func will show up:
   // componentDidMount() {
@@ -55,18 +55,7 @@ const App = () => {
 
   //Clear users from state: move it to githubState.jsx
 
-  //Set Alert
-  const showAlert = (msg, type) => {
-    // this.setState({ alert: { msg, type } }); //OR: { alert: { msg: msg, type: type } } UPDATE:
-    setAlert({ msg, type });
-
-    // We need to remove alert after certain time:
-    setTimeout(() => {
-      //we want alert back to null
-      // this.setState({ alert: null }) UPDATE:
-      setAlert(null);
-    }, 5000);
-  }
+  //Set Alert : Moved into AlertState.jsx
 
   // const { users, loading, alert, user, repos } = this.state;
 
@@ -80,7 +69,7 @@ const App = () => {
             <Navbar />
             <div className='container'>
               
-              <Alert alert={ alert }/>
+              <Alert/>
               <Switch>
                 <Route 
                   exact path='/' render={props => (
@@ -91,7 +80,7 @@ const App = () => {
                         // clearUsers={clearUsers} //no need anymore because we moved it into GithubState.jsx
                         // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
                         // showClear={ users.length > 0 ? true : false } no need anymore because we moved it into GithubState.jsx
-                        setAlert={showAlert}
+                        // setAlert={showAlert}
                       />
                       {/* <Users loading={loading} users={users}/>  these are part of app level state(context) */}
                       <Users />
