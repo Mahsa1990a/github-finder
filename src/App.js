@@ -22,7 +22,7 @@ const App = () => {
   //   alert: null
   // }     UPDATE TO:
 
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]); we don't need them anymore here
   const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
