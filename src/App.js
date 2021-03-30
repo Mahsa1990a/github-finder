@@ -8,8 +8,6 @@ import Alert from './components/layout/Alert';
 import About from './components/pages/About';
 import GithubState from "./context/github/GithubState";
 
-import axios from 'axios';
-
 import './App.css';
 
 const App = () => {
@@ -24,8 +22,8 @@ const App = () => {
 
   // const [users, setUsers] = useState([]); we don't need them anymore here
   // const [user, setUser] = useState({});
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [repos, setRepos] = useState([]);
+  // const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
 
   //As soon as App runs this func will show up:
