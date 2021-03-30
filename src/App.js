@@ -119,13 +119,14 @@ const App = () => {
 
                   <Fragment>
                     <Search 
-                      searchUsers={searchUsers} 
+                      // searchUsers={searchUsers}  we'll access it through context
                       clearUsers={clearUsers} 
                       // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
                       showClear={ users.length > 0 ? true : false }
                       setAlert={showAlert}
                     />
-                    <Users loading={loading} users={users}/>
+                    {/* <Users loading={loading} users={users}/>  these are part of app level state(context) */}
+                    <Users />
                   </Fragment>
                 )} 
               />
