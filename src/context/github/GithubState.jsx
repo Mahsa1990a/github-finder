@@ -59,6 +59,7 @@ const GithubState = (props) => {
     //  we have to wrap our whole app with provider
     <GithubContext.Provider
       value={{ //value is a prop  ... point is we're making it available for entire app
+        //anything we want to be available we need to add it here
         users: state.users,
         user: state.user,
         repos: state.repos,
