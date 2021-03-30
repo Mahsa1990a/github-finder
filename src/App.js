@@ -7,6 +7,7 @@ import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
 import GithubState from "./context/github/GithubState";
+import AlertState from "./context/alert/AlertState";
 
 import './App.css';
 
@@ -71,43 +72,45 @@ const App = () => {
 
   return (
     <GithubState>
-      <Router>
-        <div className="App">
-          {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
+      <AlertState>
+        <Router>
+          <div className="App">
+            {/* { loading ? <h4>Loading ...</h4> : <h1>Hello { showName && name }</h1>}   */}
 
-          <Navbar />
-          <div className='container'>
-            
-            <Alert alert={ alert }/>
-            <Switch>
-              <Route 
-                exact path='/' render={props => (
+            <Navbar />
+            <div className='container'>
+              
+              <Alert alert={ alert }/>
+              <Switch>
+                <Route 
+                  exact path='/' render={props => (
 
-                  <Fragment>
-                    <Search 
-                      // searchUsers={searchUsers}  we'll access it through context
-                      // clearUsers={clearUsers} //no need anymore because we moved it into GithubState.jsx
-                      // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
-                      // showClear={ users.length > 0 ? true : false } no need anymore because we moved it into GithubState.jsx
-                      setAlert={showAlert}
-                    />
-                    {/* <Users loading={loading} users={users}/>  these are part of app level state(context) */}
-                    <Users />
-                  </Fragment>
-                )} 
-              />
-              {/* Since it's a single component we say: component={About} */}
-              <Route exact path='/about' component={About} /> 
-              <Route exact path='/user/:login'
-                // <User { ...props } getUser={getUser} getUserRepos={getUserRepos} user={user} repos={repos} loading={loading} /> update:
-                // <User { ...props } getUserRepos={getUserRepos} repos={repos} /> update:
-                  component={User}
-               />
-            </Switch>
+                    <Fragment>
+                      <Search 
+                        // searchUsers={searchUsers}  we'll access it through context
+                        // clearUsers={clearUsers} //no need anymore because we moved it into GithubState.jsx
+                        // So after we searched for user(means lenght of users would be more than 0) will show clear button not before
+                        // showClear={ users.length > 0 ? true : false } no need anymore because we moved it into GithubState.jsx
+                        setAlert={showAlert}
+                      />
+                      {/* <Users loading={loading} users={users}/>  these are part of app level state(context) */}
+                      <Users />
+                    </Fragment>
+                  )} 
+                />
+                {/* Since it's a single component we say: component={About} */}
+                <Route exact path='/about' component={About} /> 
+                <Route exact path='/user/:login'
+                  // <User { ...props } getUser={getUser} getUserRepos={getUserRepos} user={user} repos={repos} loading={loading} /> update:
+                  // <User { ...props } getUserRepos={getUserRepos} repos={repos} /> update:
+                    component={User}
+                />
+              </Switch>
+            </div>
+
           </div>
-
-        </div>
-      </Router>
+        </Router>
+      </AlertState>
     </GithubState>
   );
 }
