@@ -83,7 +83,8 @@ const GithubState = (props) => {
         repos: state.repos,
         loading: state.loading, 
         searchUsers,       //so now is available in the value of context
-        clearUsers
+        clearUsers,
+        getUser
       }}
     >
       {props.children}
