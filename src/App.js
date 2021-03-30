@@ -23,7 +23,7 @@ const App = () => {
   // }     UPDATE TO:
 
   // const [users, setUsers] = useState([]); we don't need them anymore here
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
@@ -115,7 +115,8 @@ const App = () => {
               {/* Since it's a single component we say: component={About} */}
               <Route exact path='/about' component={About} /> 
               <Route exact path='/user/:login' render={props => (
-                <User { ...props } getUser={getUser} getUserRepos={getUserRepos} user={user} repos={repos} loading={loading} />
+                // <User { ...props } getUser={getUser} getUserRepos={getUserRepos} user={user} repos={repos} loading={loading} /> update:
+                <User { ...props } getUserRepos={getUserRepos} repos={repos} />
               )} />
             </Switch>
           </div>
