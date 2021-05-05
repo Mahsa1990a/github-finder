@@ -32,6 +32,7 @@ const Search = () => {
       //clear form after it:
       // this.setState({ text: '' }); UPDATED TO:
       setText(''); 
+      
     }
   };
 
